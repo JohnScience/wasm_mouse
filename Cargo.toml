@@ -1,0 +1,37 @@
+[package]
+name = "wasm_mouse"
+version = "0.1.0"
+authors = ["Dmitrii Demenev <demenev.dmitriy1@gmail.com>"]
+edition = "2021"
+rust-version = "1.56.1" # https://github.com/foresterre/cargo-msrv/issues/244
+description = "Handling mouse events in Rust using `web_sys`."
+documentation = "https://docs.rs/wasm_mouse"
+readme = "README.md"
+repository = "https://github.com/JohnScience/wasm_mouse"
+license = "MIT OR Apache-2.0"
+# license-file | not needed
+keywords = ["wasm", "frontend", "mouse", "events"]
+categories = ["wasm", "web-programming"] # https://crates.io/category_slugs
+# workspace | not needed
+# build | not needed
+# links | not needed
+# exclude | not needed
+autobins = false
+# autoexamples = true
+autotests = false
+autobenches = false
+
+[dependencies]
+bitmask-enum = "2.1.0"
+
+[dependencies.web-sys]
+version = "0.3"
+optional = true
+features = [
+    "MouseEvent",
+]
+
+[features]
+default = ["web-sys"]
+# enables intergration with the web-sys crate
+web-sys = ["dep:web-sys"]
